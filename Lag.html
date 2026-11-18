@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>System Update</title>
+<style>
+body{background:black;color:lime;font-family:monospace;text-align:center;padding-top:100px;margin:0}
+#bar{width:80%;height:25px;border:2px solid lime;margin:20px auto}
+#fill{height:100%;width:0%;background:lime}
+#prank{display:none}
+#prank h1{color:yellow;font-size:40px}
+button{padding:15px 30px;font-size:20px;background:yellow;border:none;border-radius:10px}
+</style>
+</head>
+<body>
+
+<div id="fake">
+<h2>⚠️ WARNING ⚠️</h2>
+<p>Your phone is LAGGING...</p>
+<p>Too many viruses found!</p>
+<p>Freezing in <span id="count">10</span> seconds...</p>
+<div id="bar"><div id="fill"></div></div>
+<p id="msg">Scanning...</p>
+</div>
+
+<div id="prank">
+<h1>😂😂😂</h1>
+<h1>PRANKED BY NOOR!</h1>
+<h2>From Peshawar ❤️</h2>
+<p>Your phone is 100% SAFE! Nothing happened!</p>
+<p>Just a joke!</p>
+<button onclick="location.reload()">Prank Again 😂</button>
+</div>
+
+<script>
+let i=10;
+let w=0;
+let timer=setInterval(function(){
+i--; w=w+10;
+document.getElementById("count").innerText=i;
+document.getElementById("fill").style.width=w+"%";
+document.getElementById("msg").innerText="Lagging... "+w+"%";
+if(i<=0){
+clearInterval(timer);
+document.getElementById("fake").style.display="none";
+document.getElementById("prank").style.display="block";
+}
+},1000);
+</script>
+</body>
+</html>
