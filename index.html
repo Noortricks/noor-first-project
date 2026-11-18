@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Noor App</title>
+<style>
+body { text-align:center; font-family:Arial; background:#ffe6f0; padding:30px; }
+h1 { color:#d63384; }
+button { padding:15px 25px; font-size:18px; background:#d63384; color:white; border:none; border-radius:10px; }
+input { padding:12px; font-size:16px; border-radius:8px; }
+</style>
+</head>
+<body>
+<h1>Hi, I am Noor! 👋</h1>
+<p>Welcome to My First App from Lahore</p>
+<input id="name" placeholder="Type your name">
+<br><br>
+<button onclick="sayHello()">Click Me</button>
+<h2 id="result"></h2>
+
+<script>
+function sayHello() {
+  let n = document.getElementById("name").value;
+  document.getElementById("result").innerText = "Hello " + n + "! Welcome to Noor's App ❤️";
+}
+</script>
+</body>
+</html>
