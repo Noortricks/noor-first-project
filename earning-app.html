@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Noor Quiz - Earn Points</title>
+<style>
+body{font-family:Arial;text-align:center;background:#001a00;color:white;padding:10px}
+.top{background:gold;color:black;padding:15px;border-radius:15px}
+.box{background:white;color:black;margin:15px 0;padding:20px;border-radius:15px}
+button{background:green;color:white;padding:12px;width:90%;border:none;border-radius:10px;font-size:18px;margin:5px}
+button:hover{background:#00aa00}
+</style>
+</head>
+<body>
+<div class="top">
+<h1>🏏 NOOR QUIZ APP 🏏</h1>
+<p>Points: <b id="points">0</b> | Level: <b id="level">1</b></p>
+<p>Play & Earn Points!</p>
+</div>
+
+<div class="box">
+<h2 id="question">Loading...</h2>
+<button onclick="check(0)" id="btn0"></button>
+<button onclick="check(1)" id="btn1"></button>
+<button onclick="check(2)" id="btn2"></button>
+<p id="msg"></p>
+<button style="background:orange" onclick="nextQ()">Next Question ➡️</button>
+</div>
+
+<div class="box">
+<h3>🎁 Daily Reward</h3>
+<p>Come daily, earn 50 Bonus Points!</p>
+<button style="background:blue" onclick="daily()">Claim Daily 50 Points 🎁</button>
+</div>
+
+<p>Made by Noor - Lahore ❤️<br>Share with Sohail Hayat!</p>
+
+<script>
+let points = 0;
+let qIndex = 0;
+let questions = [
+  {q:"Who is captain of Pakistan Cricket Team?", options:["Babar Azam","Sohail Hayat","Noor"], ans:0},
+  {q:"Capital of Pakistan?", options:["Lahore","Karachi","Islamabad"], ans:2},
+  {q:"How many players in Cricket Team?", options:["9","11","10"], ans:1},
+  {q:"Which Surah is Heart of Quran?", options:["Surah Yasin","Surah Fatiha","Surah Ikhlas"], ans:0},
+  {q:"What is 5 + 5?", options:["9","11","10"], ans:2}
+];
+
+function showQ(){
+  let q = questions[qIndex];
+  document.getElementById("question").innerText = q.q;
+  document.getElementById("btn0").innerText = q.options[0];
+  document.getElementById("btn1").innerText = q.options[1];
+  document.getElementById("btn2").innerText = q.options[2];
+  document.getElementById("msg").innerText = "";
+}
+function check(i){
+  if(i==questions[qIndex].ans){
+    points += 10;
+    document.getElementById("points").innerText = points;
+    document.getElementById("msg").innerText = "✅ Correct! +10 Points!";
+  } else {
+    document.getElementById("msg").innerText = "❌ Wrong! Try Again!";
+  }
+  if(points>=50){
+    document.getElementById("level").innerText = "2 - PRO 🔥";
+  }
+}
+function nextQ(){
+  qIndex++;
+  if(qIndex>=questions.length){ qIndex=0; alert("You finished all! Starting again!"); }
+  showQ();
+}
+function daily(){
+  points += 50;
+  document.getElementById("points").innerText = points;
+  alert("🎁 You got 50 Bonus Points!");
+}
+showQ();
+</script>
+</body>
+</html>
